@@ -10,13 +10,19 @@ var matches = fs_1.default
 })
     .split("\n")
     .map(function (row) { return row.split(","); });
+var MatchRsult;
+(function (MatchRsult) {
+    MatchRsult["HomeWin"] = "H";
+    MatchRsult["AwayWin"] = "A";
+    MatchRsult["Draw"] = "D";
+})(MatchRsult || (MatchRsult = {}));
 var manUnitedWins = 0;
 for (var _i = 0, matches_1 = matches; _i < matches_1.length; _i++) {
     var match = matches_1[_i];
-    if (match[1] === "Man United" && match[5] === "H") {
+    if (match[1] === "Man United" && match[5] === MatchRsult.HomeWin) {
         manUnitedWins++;
     }
-    else if (match[2] === "Man United" && match[5] === "A") {
+    else if (match[2] === "Man United" && match[5] === MatchRsult.AwayWin) {
         manUnitedWins++;
     }
 }
